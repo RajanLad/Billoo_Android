@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--Billoo Custom colors-->
+    <color name="colorPrimaryForBilloo">#E0E0E0</color>
+    <color name="colorPrimaryDarkForBilloo">#56E243</color>
+    <color name="colorAccentForBilloo">#56E27C</color>
+    <color name="toolbarIconColorForBilloo">#FFFFFF</color>
+    <color name="loginPageBackgroundColorForBilloo">#FFFFFF</color>
+    <color name="productGridBackgroundColorForBilloo">#FFFFFF</color>
+<!--Orignal colors-->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--#56E243 primary-->
+    <!--#56E27C accent-->
+<!--Base Colors-->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="gray">#717171</color>
+    <color name="glassgray">#71717171</color>
+</resources>

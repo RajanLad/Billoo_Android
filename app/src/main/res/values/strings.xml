@@ -1,0 +1,31 @@
+<resources>
+    <!--Splash Screen-->
+    <string name="app_name">Billoo</string>
+    <string name="logo">logo</string>
+    <string name="product_slogan">....digitizing bills</string>
+
+    <!--Login Screen-->
+    <string name="login_login">Login</string>
+    <string name="password_login">Password</string>
+    <string name="signup_login">Sign-up</string>
+    <string name="email_login">Email ID</string>
+    <!--Signup Screen-->
+    <string name="signup_signup">Sign-up</string>
+    <string name="email_signup">Email ID</string>
+    <string name="password_signup">Password</string>
+    <string name="confirmpassword_signup">Confirm Password</string>
+    <string name="mobile_signup">Mobile</string>
+    <string name="agreetermsandconditions_signup">I agree to terms and conditions of this product</string>
+
+    <!--Home Activity-->
+    <string name="title_activity_home">Billoo Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">billoo@biloo.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
