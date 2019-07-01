@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <!-- Drop Shadow Stack -->
+        <item>
+            <shape>
+                <stroke android:width="12dp" android:color="@color/colorPrimaryDarkForBilloo"/>
+                <corners android:radius="20dp"/>
+            </shape>
+        </item>
+
+        <!--<item android:top="10dp">-->
+            <!--<shape>-->
+                <!--<corners android:topRightRadius="20dp" android:topLeftRadius="20dp"/>-->
+                <!--<padding android:top="1dp"/>-->
+                <!--<solid android:color="#717171"/>-->
+            <!--</shape>-->
+        <!--</item>-->
+
+        <!--&lt;!&ndash; base background &ndash;&gt;-->
+        <!--<item android:top="5dp">-->
+            <!--<shape android:shape="rectangle">-->
+                <!--<corners android:topRightRadius="20dp" android:topLeftRadius="20dp"/>-->
+                <!--<solid android:color="#fff"/>-->
+            <!--</shape>-->
+        <!--</item>-->
+
+</selector>

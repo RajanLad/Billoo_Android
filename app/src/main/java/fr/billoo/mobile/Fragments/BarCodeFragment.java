@@ -1,6 +1,5 @@
-package fr.billoo.mobile.fragments;
+package fr.billoo.mobile.Fragments;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

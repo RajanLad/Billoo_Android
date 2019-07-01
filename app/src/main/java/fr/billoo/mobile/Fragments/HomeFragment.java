@@ -1,23 +1,16 @@
-package fr.billoo.mobile.fragments;
+package fr.billoo.mobile.Fragments;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -25,7 +18,6 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.*;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
@@ -54,6 +46,10 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
 
     private PieChart chart;
+    ArrayList<PieEntry> values;
+    TextView enterprise,noofitemsbought,totalcostspent,lastdateofpurchase;
+    RelativeLayout textInfo;
+    String stores[]= {"Auchan","Carrefour","Lidl","E-leclerc"};;
 
     private OnFragmentInteractionListener mListener;
 
@@ -72,9 +68,6 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -90,10 +83,17 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_home, container, false);
 
+        textInfo=(RelativeLayout)view.findViewById(R.id.textualInfo);
+
+        enterprise = (TextView) view.findViewById(R.id.titleHead);
+        noofitemsbought = (TextView) view.findViewById(R.id.noOfItemsBought);
+        totalcostspent = (TextView) view.findViewById(R.id.totalMoneySpent);
+        lastdateofpurchase = (TextView) view.findViewById(R.id.lastPurchaseDate);
+
         chart = view.findViewById(R.id.chart);
         chart.setBackgroundColor(Color.WHITE);
 
-        //moveOffScreen();
+        moveOffScreen();
 
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
@@ -143,14 +143,40 @@ public class HomeFragment extends Fragment {
             @Override
             public void onValueSelected(Entry e, Highlight h) {
 
-                PieEntry p = (PieEntry) e.copy();
+                int i=(int)h.getX();
 
-                ArrayList<PieEntry> values = new ArrayList<>();
-                values.add((PieEntry) e.copy());
-
-
-
-                Toast.makeText(getContext(), values+" ", Toast.LENGTH_SHORT).show();
+                if(i==0)
+                {
+                    enterprise.setText(stores[i]);
+                    enterprise.setTextColor(ColorTemplate.MATERIAL_COLORS[i]);
+                    noofitemsbought.setText(getResources().getString(R.string.noofitemsbought)+" "+(i+1+(int)Math.random()*200));
+                    totalcostspent.setText(getResources().getString(R.string.totalmoneyspenthere)+" "+(i+(int)Math.random()*100));
+                    lastdateofpurchase.setText(getResources().getString(R.string.lastdateofpurchase)+" 07/07/2019");
+                }
+                else if(i==1)
+                {
+                    enterprise.setText(stores[i]);
+                    enterprise.setTextColor(ColorTemplate.MATERIAL_COLORS[i]);
+                    noofitemsbought.setText(getResources().getString(R.string.noofitemsbought)+" "+(i+(int)Math.random()*200));
+                    totalcostspent.setText(getResources().getString(R.string.totalmoneyspenthere)+" "+(i+(int)Math.random()*100));
+                    lastdateofpurchase.setText(getResources().getString(R.string.lastdateofpurchase)+" 07/07/2019");
+                }
+                else if(i==2)
+                {
+                    enterprise.setText(stores[i]);
+                    enterprise.setTextColor(ColorTemplate.MATERIAL_COLORS[i]);
+                    noofitemsbought.setText(getResources().getString(R.string.noofitemsbought)+" "+(i+(int)Math.random()*200));
+                    totalcostspent.setText(getResources().getString(R.string.totalmoneyspenthere)+" "+(i+(int)Math.random()*100));
+                    lastdateofpurchase.setText(getResources().getString(R.string.lastdateofpurchase)+" 07/07/2019");
+                }
+                else if(i==3)
+                {
+                    enterprise.setText(stores[i]);
+                    enterprise.setTextColor(ColorTemplate.MATERIAL_COLORS[i]);
+                    noofitemsbought.setText(getResources().getString(R.string.noofitemsbought)+" "+(i+(int)Math.random()*200));
+                    totalcostspent.setText(getResources().getString(R.string.totalmoneyspenthere)+" "+(i+(int)Math.random()*100));
+                    lastdateofpurchase.setText(getResources().getString(R.string.lastdateofpurchase)+" 07/07/2019");
+                }
             }
 
             @Override
@@ -203,8 +229,7 @@ public class HomeFragment extends Fragment {
 
     private void setData(int count, float range) {
 
-        ArrayList<PieEntry> values = new ArrayList<>();
-        String stores[] = {"Auchan","Carrefour","Lidl","E-leclerc"};
+        values = new ArrayList<>();
 
         for (int i = 0; i < count; i++) {
             values.add(new PieEntry((float) ((Math.random() * range) + range / 5),stores[i % stores.length]));
@@ -229,18 +254,6 @@ public class HomeFragment extends Fragment {
         chart.invalidate();
     }
 
-    private SpannableString generateCenterSpannableText() {
-
-        SpannableString s = new SpannableString("MPAndroidChart\ndeveloped by Philipp Jahoda");
-        s.setSpan(new RelativeSizeSpan(1.7f), 0, 14, 0);
-        s.setSpan(new StyleSpan(Typeface.NORMAL), 14, s.length() - 15, 0);
-        s.setSpan(new ForegroundColorSpan(Color.GRAY), 14, s.length() - 15, 0);
-        s.setSpan(new RelativeSizeSpan(.8f), 14, s.length() - 15, 0);
-        s.setSpan(new StyleSpan(Typeface.ITALIC), s.length() - 14, s.length(), 0);
-        s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length() - 14, s.length(), 0);
-        return s;
-    }
-
     private void moveOffScreen() {
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -248,11 +261,12 @@ public class HomeFragment extends Fragment {
 
         int height = displayMetrics.heightPixels;
 
-        int offset = (int)(height * 0.65); /* percent to move */
+        int offset = (int)(height * 0.15); /* percent to move */
 
-        FrameLayout.LayoutParams rlParams =
-                (FrameLayout.LayoutParams) chart.getLayoutParams();
+        RelativeLayout.LayoutParams rlParams =
+                (RelativeLayout.LayoutParams) chart.getLayoutParams();
         rlParams.setMargins(0, 0, 0, -offset);
+
         chart.setLayoutParams(rlParams);
     }
 

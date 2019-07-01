@@ -18,13 +18,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import fr.billoo.mobile.fragments.BillsFragment;
-import fr.billoo.mobile.fragments.HomeFragment;
+import fr.billoo.mobile.Fragments.AnalyticsFragment;
+import fr.billoo.mobile.Fragments.BillsFragment;
+import fr.billoo.mobile.Fragments.HomeFragment;
+import fr.billoo.mobile.Fragments.SettingsFragment;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         HomeFragment.OnFragmentInteractionListener,
-        BillsFragment.OnFragmentInteractionListener{
+        BillsFragment.OnFragmentInteractionListener,
+        AnalyticsFragment.OnFragmentInteractionListener,
+        SettingsFragment.OnFragmentInteractionListener
+        {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,9 +144,11 @@ public class HomeActivity extends AppCompatActivity
             title  = "Bills";
 
         } else if (id == R.id.nav_analytics) {
-
+            fragment = new AnalyticsFragment();
+            title = "Analytics";
         } else if (id == R.id.nav_settings) {
-
+            fragment = new SettingsFragment();
+            title = "Settings";
         }
 
         if (fragment != null) {

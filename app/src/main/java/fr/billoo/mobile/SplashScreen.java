@@ -11,32 +11,20 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        Thread timer = new Thread(){
-            public void run(){
-                try{
-                    sleep(2500);
-
-                    Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
-
-                    // Closing all the Activities
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                    // Add new Flag to start new Activity
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-
-
-                    startActivity(intent);
-
-                    finish();
+            Thread timer = new Thread(){
+                public void run(){
+                    try{
+                        sleep(2500);
+                    }
+                    catch(InterruptedException e){
+                        e.printStackTrace();
+                    } finally {
+                        Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
-                catch(InterruptedException e){
-                    e.printStackTrace();
-                } finally {
-
-                }
-            }
-        };
-        timer.start();
+            };
+            timer.start();
+        }
     }
-}
