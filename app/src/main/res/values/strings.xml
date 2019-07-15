@@ -38,4 +38,10 @@
     <string name="lastdateofpurchase">Last date of purchase :</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--Java Side Strings-->
+    <string name="error_email">Wrong Email ID format</string>
+    <string name="error_password">Password should be more than 6 chars</string>
+    <string name="error_confirm_password">Password doesn\'t match</string>
 </resources>

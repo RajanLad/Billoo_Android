@@ -25,11 +25,12 @@ import fr.billoo.mobile.R;
  * Use the {@link BillsFragment#} factory method to
  * create an instance of this fragment.
  */
-public class BillsFragment extends Fragment implements BillsAdapter.ItemClickListener {
+public class BillsFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
 
     private OnFragmentInteractionListener mListener;
     BillsAdapter billsAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     public BillsFragment() {
         // Required empty public constructor
@@ -57,23 +58,12 @@ public class BillsFragment extends Fragment implements BillsAdapter.ItemClickLis
 
 
 
-        // set up the RecyclerView
-        RecyclerView recyclerView = view.findViewById(R.id.billsList);
-        //recyclerView.setLayoutManager(new CoordinatorLayout(getContext()));
-        billsAdapter = new BillsAdapter(getContext(), animalNames);
-        recyclerView.setAdapter(billsAdapter);
-
-        billsAdapter.setClickListener(this);
 
 
 
     return view;
     }
 
-    @Override
-    public void onItemClick(View view, int position) {
-
-    }
 
 
     // TODO: Rename method, update argument and hook method into UI event

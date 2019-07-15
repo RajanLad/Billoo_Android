@@ -7,6 +7,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,8 +17,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import fr.billoo.mobile.BaseFunctionalities.SessionManager;
 import fr.billoo.mobile.Fragments.AnalyticsFragment;
 import fr.billoo.mobile.Fragments.BillsFragment;
 import fr.billoo.mobile.Fragments.HomeFragment;
@@ -31,6 +36,7 @@ public class HomeActivity extends AppCompatActivity
         SettingsFragment.OnFragmentInteractionListener
         {
 
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +47,16 @@ public class HomeActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setElevation(0);
 
+        sessionManager=SessionManager.getInstance(this);
 
         //Barcode Fragment POP up
         // get the bottom sheet view
         ConstraintLayout llBottomSheet = (ConstraintLayout) findViewById(R.id.barView);
+
+        ImageView barcode=(ImageView)findViewById(R.id.barCodeImage);
+        Glide.with(this)
+                .load(Base64.decode(sessionManager.getBarcode(), Base64.DEFAULT))
+                .into(barcode);
 
         // init the bottom sheet behavior
         BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);

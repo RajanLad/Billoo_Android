@@ -25,6 +25,7 @@
         android:layout_below="@id/logo_login">
         <EditText
             android:id="@+id/email_login"
+            android:text="rajanrlad71293@gmail.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -40,6 +41,7 @@
         android:layout_below="@id/email_login_placeholder">
             <EditText
                 android:id="@+id/password_login"
+                android:text="check@123"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"

@@ -28,7 +28,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/barCodeImage"
         android:layout_width="wrap_content"
         android:layout_height="235dp"
         android:layout_marginBottom="60dp"
@@ -50,8 +50,9 @@
         android:layout_marginTop="8dp"
         android:text="Code : 8985954885555"
         android:textSize="20dp"
+        android:visibility="gone"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/barCodeImage" />
 </android.support.constraint.ConstraintLayout>

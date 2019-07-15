@@ -10,70 +10,44 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
 import fr.billoo.mobile.Models.BillsModel;
 import fr.billoo.mobile.R;
 
-public class BillsAdapter extends RecyclerView.Adapter<BillsAdapter.ViewHolder> {
+public class BillsAdapter
+        //extends RecyclerView.Adapter<BillsAdapter.BillsViewHolder>
+{
 
-    private List<BillsModel> mData;
-    private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
-
-    // data is passed into the constructor
-    public BillsAdapter(Context context, List<BillsModel> data) {
-        this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = mInflater.inflate(R.layout.bills_list, viewGroup, false);
-//        Toast.makeText(view.getContext(),"")
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull BillsAdapter.ViewHolder viewHolder, int i) {
-        String title = mData.get(i).getTitle();
-        viewHolder.title.setText(title);
-    }
-
-    @Override
-    public int getItemCount() {
-        return 0;
-    }
-
-    // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
-        TextView title,category,cost,date;
-
-        ViewHolder(View itemView) {
-            super(itemView);
-            title = itemView.findViewById(R.id.title_bill_list);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
-        }
-    }
-
-    // convenience method for getting data at click position
-    BillsModel getItem(int id) {
-        return mData.get(id);
-    }
-
-    // allows clicks events to be caught
-    public void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
-
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
+//    private ArrayList<BillsModel> mBills = new ArrayList<>();
+//    private Context mContext;
+//
+//
+//    public BillsAdapter(Context mContext,ArrayList<BillsModel> mBills) {
+//        this.mContext = mContext;
+//        this.mBills = mBills;
+//    }
+//
+//    public class RestaurantViewHolder extends RecyclerView.ViewHolder {
+//        @Bind(R.id.title_bill_list) TextView title_bill_list;
+//        @Bind(R.id.cost_text_view) TextView cost_text_view;
+//        @Bind(R.id.catgory_bill_list) TextView catgory_bill_list;
+//        @Bind(R.id.date_bill_list) TextView date_bill_list;
+//
+//        private Context mContext;
+//
+//        public RestaurantViewHolder(View itemView) {
+//            super(itemView);
+//            ButterKnife.bind(this, itemView);
+//            mContext = itemView.getContext();
+//        }
+//
+//        public void bindRestaurant(Restaurant restaurant) {
+//            mNameTextView.setText(restaurant.getName());
+//            mCategoryTextView.setText(restaurant.getCategories().get(0));
+//            mRatingTextView.setText("Rating: " + restaurant.getRating() + "/5");
+//        }
+//    }
 }
